@@ -1,0 +1,284 @@
+<%
+var title = 'Pushm.io Free Plan Admediator';
+var metaDescription = 'This page is an intermediate ad page for pushm.io free plan users';
+var keywords = '';
+%>
+
+<% include partials/header %>
+<!--script src="/js/buy.js"></script-->
+<link rel="stylesheet" href="/css/admediator.css">
+
+
+<script>
+
+
+$(document).ready(function () {
+  let secondsRemaining = 6;
+  updateTime();
+
+  function updateTime() {
+    $('.skipAd').text('Skip Ad in ' + secondsRemaining + 's');
+  }
+
+  var countDown = setInterval(function() {
+    secondsRemaining -= 1;
+    if (secondsRemaining > 0){
+      updateTime();
+    } else {
+      clearInterval(countDown);
+      $('.skipAd').text('Skip ad now');
+      $('.skipAd').removeAttr('disabled');
+    }
+  }, 1000);
+
+  setTimeout(function(){ $("img").next().addClass("text-white"); }, 400);
+  setTimeout(function(){ $("img").next().addClass("text-white"); }, 800);
+  setTimeout(function(){ $("img").next().addClass("text-white"); }, 1600);
+
+  if (adblockActive)
+    $('#adblockMessage').show();
+
+});
+
+</script>
+
+<div class="container">
+<div class="row text-center">
+    <div class="col-lg-12">
+    <h1 class="text-center">Thank you for using Pushmio!</h1>
+    <h5 style="margin: 0% 15%;" class="text-center">We rely on advertising to keep our services free for you. Scroll down and click the 'Skip ad' button to reach your intended destination.</h5><br />
+    <h5 style="margin: 0% 15%;" class="text-center">Please also support us by sharing your subscribed feed (<%= feed.name %>) over social media once in a while. Thanks!</h5><br />
+    <a href="http://www.facebook.com/sharer.php?u=https://pushm.io/feed/<%= feed.name %>" target="_blank">
+      <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://twitter.com/share?url=https://pushm.io/feed/<%= feed.name %>" target="_blank">
+      <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+    </a>
+    <h2 style="display:none;padding-top:13px;" id="adblockMessage" class="text-warning">Please deactivate Adblock on Pushm.io to support us!</h2>
+  </div>
+</div>
+
+<br />
+<!-- Adsense display-->
+<% if (processEnv == 'production') { %>
+  <!--div class="row justify-content-center">
+    <div class="col-lg-12">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9967035229235107"
+           data-ad-slot="9697792511"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div-->
+<% } %>
+
+<!-- Chitika display -->
+<!--div class="row justify-content-center text-center">
+  <div class="col-lg-12 d-block d-md-none">
+    <script type="text/javascript">
+      ( function() {
+        if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+        var unit = {"calltype":"async[2]","publisher":"sebashatt","width":300,"height":250,"sid":"Chitika Default"};
+        var placement_id = window.CHITIKA.units.length;
+        window.CHITIKA.units.push(unit);
+        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+    }());
+    </script>
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+  </div>
+  <div class="col-lg-12 d-none d-md-block">
+    <script type="text/javascript">
+      ( function() {
+        if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+        var unit = {"calltype":"async[2]","publisher":"sebashatt","width":728,"height":90,"sid":"Chitika Default"};
+        var placement_id = window.CHITIKA.units.length;
+        window.CHITIKA.units.push(unit);
+        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+    }());
+    </script>
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+  </div>
+</div-->
+
+<!-- Amazon display -->
+<!--div class="row justify-content-center text-center">
+  <div class="col-lg-10 col-md-12">
+    <div id="amzn-assoc-ad-b7e6f0a0-19b7-474d-81e5-723e9e4e1fdc"></div>
+    <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=b7e6f0a0-19b7-474d-81e5-723e9e4e1fdc"></script>
+  </div>
+</div-->
+
+<!-- Adnow display -->
+<!--div class="row justify-content-center text-center">
+  <div class="col-lg-10">
+    <div id="SC_TBlock_566867" class="SC_TBlock">loading...</div>
+  </div>
+</div>
+<br /-->
+
+<!-- Adsense display -->
+<% if (processEnv == 'production') { %>
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- PushmioAdmediatorFooter -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9967035229235107"
+           data-ad-slot="8109131259"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+  <br />
+<% } %>
+
+<div class="row justify-content-center text-center">
+  <div class="col-lg-12">
+    <button disabled onclick="window.location.href='<%= url%>';" style="width:60%;" class="btn btn-lg btn-success skipAd">&nbsp;</button>
+  </div>
+</div>
+<br />
+
+<!-- Chitika Display Ads -->
+<div class="row justify-content-center text-center">
+  <div class="col-lg-12 d-block d-md-none">
+    <script type="text/javascript">
+      ( function() {
+        if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+        var unit = {"calltype":"async[2]","publisher":"sebashatt","width":300,"height":250,"sid":"Chitika Default"};
+        var placement_id = window.CHITIKA.units.length;
+        window.CHITIKA.units.push(unit);
+        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+    }());
+    </script>
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+  </div>
+  <div class="col-lg-12 d-none d-md-block">
+    <script type="text/javascript">
+      ( function() {
+        if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+        var unit = {"calltype":"async[2]","publisher":"sebashatt","width":728,"height":90,"sid":"Chitika Default"};
+        var placement_id = window.CHITIKA.units.length;
+        window.CHITIKA.units.push(unit);
+        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+    }());
+    </script>
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+  </div>
+</div>
+
+<br />
+<div class="row justify-content-center">
+  <div class="col-lg-8 col-sm-12">
+    <% if (feed.id != -1 && feed.postHistory.length > 0) { %>
+      <h3 class="text-white text-center" style="margin-bottom:15px;">Your recent notifications (from feed <%= feed.name %>)</h3>
+      <ul id="postHistoryList">
+        <%
+        for (var i=0; i < feed.postHistory.length && i < 5; i++) { %>
+          <li>
+            <div class="row justify-content-center">
+              <div class="col-1" style=""><%= feed.postHistory[i].postdate %></div>
+              <div class="col-1" style="font-size:1.6em;">
+                <% if (feed.postHistory[i].type == 'reddit') { %>
+                  <i class="fab fa-reddit"></i>
+                <% }
+                if (feed.postHistory[i].type == 'twitter') { %>
+                  <i class="fab fa-twitter"></i>
+                <% } %>
+              </div>
+              <div class="col-10" style="">
+                <b>
+                  <% if (feed.postHistory[i].type == 'reddit') { %>
+                    r/<%= feed.postHistory[i].target %>:
+                  <% }
+                  if (feed.postHistory[i].type == 'twitter') { %>
+                    @<%= feed.postHistory[i].target %>:
+                  <% } %>
+                </b>
+                <%= feed.postHistory[i].content %>
+              </div>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    <% } %>
+  </div>
+</div>
+<br />
+
+</div>
+
+<!-- PopAds popunder -->
+<!--script type="text/javascript" data-cfasync="false">
+/*<![CDATA[/* */
+  var _pop = _pop || [];
+  _pop.push(['siteId', 2871887]);
+  _pop.push(['minBid', 0]);
+  _pop.push(['popundersPerIP', 0]);
+  _pop.push(['delayBetween', 0]);
+  _pop.push(['default', false]);
+  _pop.push(['defaultPerDay', 0]);
+  _pop.push(['topmostLayer', false]);
+  (function() {
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    var s = document.getElementsByTagName('script')[0];
+    pa.src = '//c1.popads.net/pop.js';
+    pa.onerror = function() {
+      var sa = document.createElement('script'); sa.type = 'text/javascript'; sa.async = true;
+      sa.src = '//c2.popads.net/pop.js';
+      s.parentNode.insertBefore(sa, s);
+    };
+    s.parentNode.insertBefore(pa, s);
+  })();
+/*]]>/* */
+</script-->
+
+<!-- Amazon bottom bar mboile -->
+<script type="text/javascript">
+    amzn_assoc_ad_type = "link_enhancement_widget";
+    amzn_assoc_tracking_id = "pushmio-20";
+    amzn_assoc_linkid = "7e1e2f3a29db395e3e9c329864b1e9ce";
+    amzn_assoc_placement = "";
+    amzn_assoc_marketplace = "amazon";
+    amzn_assoc_region = "US";
+</script>
+<script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+
+<!-- Spoutable -->
+<!--script id="spout-tag-f5ce1507-aee3-4fcd-927c-9e0987f55246">
+  (function() {
+    var r = encodeURIComponent(top.document.referrer.substring(0,250)),
+        p = encodeURIComponent(top.document.location.href.substring(0,250)),
+        t = Date.now(),
+        u = 'f5ce1507-aee3-4fcd-927c-9e0987f55246',
+        e = document.createElement('script'),
+        s = sessionStorage.getItem('spoutable-' + u);
+    if (!s) {
+      var m = Math.random.bind(Math);
+      s = JSON.stringify({ sessionId: [ t, m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m() ]});
+      sessionStorage.setItem('spoutable-' + u, s);
+    }
+    e.async = true;
+    e.src='//s.spoutable.com/s?u='+u+'&s='+encodeURIComponent(s)+'&t='+t+'&r='+r+'&p='+p;
+    document.head.appendChild(e);
+  })();
+</script-->
+
+
+<% include partials/footer %>
+<!--script type="text/javascript">
+  (sc_adv_out = window.sc_adv_out || []).push({
+    id : "566867",
+    domain : "n.ads1-adnow.com"
+  });
+</script>
+<script type="text/javascript" src="//st-n.ads1-adnow.com/js/a.js"></script-->

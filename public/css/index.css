@@ -1,0 +1,81 @@
+#pricingBox {
+  background-color: #000a14;
+  opacity:0.99;
+}
+
+#pricingBox h1,h2,h5 {
+  color: black;
+}
+
+#pricingBoxPic {
+  background: url("../img/app-promo/features-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#pricingBoxPic:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #e9ecef;
+  opacity: .6;
+}
+
+
+#infoBox .media-left {
+  width:80px;
+  margin-right:10px;
+  margin-top:8px;
+}
+
+#infoBox .media-left span {
+  font-size:1.5em;
+}
+
+#infoBox .media-left i {
+  font-size:2em;
+}
+
+#infoBox .media-body {
+  font-size:1.1em;
+}
+
+#newFeedForm {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1.5em 1.5em;
+  padding-top: 1em;
+}
+
+#newFeedBox {
+  background-color: #000a14;
+  opacity:0.99;
+}
+
+#supportedBox {
+  background-color: white;
+}
+#supportedBox .media-left {
+  width:100px;
+  margin-right:20px;
+  margin-top:8px;
+}
+#supportedBox .media-left i {
+  font-size:60px;
+}
+#supportedBoxPic:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #001830;
+  opacity: .85;
+}
+#supportedBoxPic {
+  background: url("../img/app-promo/features-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}

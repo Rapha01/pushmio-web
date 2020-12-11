@@ -1,0 +1,531 @@
+<%
+var title = 'Pushm.io - Personal Push Notification Manager for Desktop and Mobile';
+var metaDescription = 'Manage, filter, organize your push notifications for mobile and desktop. Make push notifications interesting and useful by filtering your favorite social media channels.';
+var keywords = 'push notification, filter, interesting, useful, deactivate, disable, turn off, deinstall';
+%>
+
+<% include partials/header %>
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/pricingbox.css">
+<script src="/js/index.js"></script>
+
+
+<div class="container" id="indexHeader">
+  <div class="row justify-content-center" style="height:85vh;">
+    <div class="col-lg-6 my-auto">
+      <img src="/img/index/infopic1.png" style="width:95%;">
+    </div>
+    <div class="col-lg-6 my-auto text-center">
+      <h1 class="text-center text-white">Let's make push notifications <b><i>interesting</i></b> and <b><i>useful</i></b>!</h1>
+      <h4  class="text-muted text-center">Build and manage your own feed for <b><i>free</i></b> and in <b><i>under a minute</i></b>. Filter posts from your favorite social media channels and forward them to the devices of your choice.</b></h4>
+      <br />
+      <a href="/#newFeedBox" style="width:80%;" class="btn btn-lg btn-success">Create new feed</a>
+    </div>
+  </div>
+
+</div>
+<br />
+<div id="newFeedBox">
+  <br /><br /><br />
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6 my-auto">
+        <h1 class="text-white text-center">Create a new <br />push notification feed</h1>
+        <br /><br />
+        <div id="infoBox">
+          <div class="media">
+            <span class="media-left text-center my-auto">
+              <span>1.&nbsp;</span> <i class="fas fa-pencil-alt text-warning"></i>
+            </span>
+            <div class="media-body my-auto">
+              <span class="text-white">Register a new feed with the form below.</span>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center my-auto" >
+              <span>2. &nbsp;</span><i class="fas fa-bell text-danger"></i>
+            </span>
+            <div class="media-body my-auto">
+              <span class="text-white">Allow browser prompt to receive push notifications from pushm.io.</span>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center my-auto" >
+              <span>3. &nbsp;</span><i class="fas fa-plus-square text-success"></i>
+            </span>
+            <div class="media-body my-auto">
+              <span class="text-white">Select and add social media channels by copy-pasting its url to your feeds dashboard.</span>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center my-auto">
+              <span>4. &nbsp;</span><i class="fas fa-play-circle text-info"></i>
+            </span>
+            <div class="media-body my-auto">
+              <span class="text-white">Click "Activate" / "Deactivate" to start/stop receiving notifications from added channels.</span>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </div>
+      <div class="col-md-6 my-auto">
+        <form method="POST" action="api/feed/new" id="newFeedForm">
+          <fieldset>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label>Feed Name (no spaces)</label>
+                  <input name="name" type="name" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                  <label>Email</label>
+                  <input name="email" type="email" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label>Password</label>
+                  <input name="password" type="password" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                  <label>Password Verify</label>
+                  <input name="passwordVerify" type="password" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:25px;margin-bottom:10px;" align="center" class="g-recaptcha" data-sitekey="6LdxmGgUAAAAAJmH8pu35NzcFJpQBUGt6oIxgb63"></div>
+            <div class="custom-control custom-checkbox mb-3 text-center">
+              <input required type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">Accept <a href="/termsandconditions">Terms and Conditions</a></label>
+            </div>
+            <div class="text-center">
+              <button id="newFeedSubmit" style="width:80%;" class="btn btn-lg btn-success">Create new feed</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <br /><br /><br />
+  </div>
+</div>
+<div id="supportedBox">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class=" col-lg-6 col-md-8 col-sm-12 py-5 mx-auto">
+        <div class="container">
+          <h1 class="text-center text-dark">Supported Sources</h1>
+          <h5 class="text-center text-dark">Filter your notifications from the following sources.</h5>
+          <br />
+          <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <i style="color:#1da1f2;font-size:3em;" class="fab fa-twitter"></i>
+            </div>
+            <div class="col-5">
+              <h5 class="text-dark">Twitter <span style="font-size:0.8em;">(Timelines)</span></h5>
+              <p class="text-muted">
+                Filter by keywords.<br /><br />
+              </p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <i style="color:#ff4500;font-size:3em;" class="fab fa-reddit"></i>
+            </div>
+            <div class="col-5">
+              <h5 class="text-dark">Reddit <span style="font-size:0.8em;">(Subreddits)</span></h5>
+              <p class="text-muted">
+                Filter by keywords, karma and authors.<br /><br />
+              </p>
+            </div>
+          </div>
+          <h1 class="text-center text-dark">Supported Browsers and Devices</h1>
+          <h5 class="text-center text-dark">Subscribe to your feed with any modern device, browser and Operating System (except iOS). <br />No app installation needed and runs in the background.</h5>
+          <br />
+          <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <i style="font-size:2.7em;color:#4587F3;" class="fab fa-chrome"></i>
+            </div>
+            <div class="col-5">
+              <h5 class="text-dark">Chrome <span style="font-size:0.7em;">(Recommended)</span></h5>
+              <p class="text-muted">
+                <br />
+              </p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <i style="font-size:2.7em;color:#e66000;" class="fab fa-firefox"></i>
+            </div>
+            <div class="col-5">
+              <h5 class="text-dark">Firefox</h5>
+              <p class="text-muted">
+                <br />
+              </p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <i style="font-size:2.6em;color:red;" class="fab fa-opera"></i>
+            </div>
+            <div class="col-5">
+              <h5 class="text-dark">Opera</h5>
+              <p class="text-muted">
+                <br />
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12 px-0 py-5" id="supportedBoxPic">
+        <!--img class="mt-auto mb-auto" src="img/app-promo/iphone-app-screenshot.png" alt="App Screenshot - Shards App Promo Demo Page"-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/css/info.css">
+
+<div id="useCaseBox">
+  <br /><br /><br />
+  <div class="container">
+    <h1 class="text-white text-center">What do you use Pushm.io for?</h1>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-6">
+        <div class="media">
+          <span class="media-left">
+            <img src="/img/usecaseprofiles/sebastianstocks.png" style="width:100%;">
+          </span>
+          <div class="media-body my-auto">
+            <br/>
+            <h5 class="text-white">Ivar, 36, Trader</h5>
+            <p class="text-muted">
+                Hello. I am a stock and cryptocurrency trader who buys and sells depending on news and social media.
+                With this simple tool i keep track of all major news channels.
+                Whenever one of them writes something about a stock/coin that i hold, i will be notified wherever i am.
+                Then i can buy or sell as one of the first, depending on the news. Thank you for this tool!
+            </p>
+          </div>
+        </div>
+        <br /><br/>
+        <div class="media">
+          <span class="media-left">
+            <img src="/img/usecaseprofiles/lauragaming.png" style="width:100%;">
+          </span>
+          <div class="media-body">
+            <br/>
+            <h5 class="text-white">Laura, 22, Gamer</h5>
+            <p class="text-muted">
+              I was so annoyed of push notification on my phone..
+              Because i subscribed to a lot of gaming channels i used to get lots of messages about games i don't even play.
+              Before i started using pushm.io i had already deactivated them for all apps.
+              I set my filters accordingly and now only get about 2 interesting notifications a day.
+              This way push notifications are not annying at all anymore.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="media">
+          <span class="media-left">
+            <img src="/img/usecaseprofiles/samirablogging.png" style="width:100%;">
+          </span>
+          <div class="media-body">
+            <br />
+            <h5 class="text-white">Samira, 29, Blogger</h5>
+            <p class="text-muted">
+                My hobby and profession is writing articles for my own blogs.
+                In some of my niches it is very good to publish news very soon to rank higher in search engines.
+                Pushm.io helps me keeping up with all important news updates about my niches without having to read through all the spam.
+                This way i get more ideas for articles and can write and publish them faster.
+            </p>
+          </div>
+        </div>
+        <br /><br/>
+        <div class="media">
+          <span class="media-left">
+            <img src="/img/usecaseprofiles/hakimnaruto.png" style="width:100%;">
+          </span>
+          <div class="media-body">
+            <br />
+            <h5 class="text-white">Hakim, 23, Fan</h5>
+            <p class="text-muted">
+                Hi i'm Hakim. I use pushmio for keeping up to date with new manga and anime chapter releases.
+                I have added /r/anime, /r/manga and also some Twitter channels.
+                Then i filter only posts regarding my favorite books/series.
+                Whenever a new episode is released i get notified instantly. Greets.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <h3 class="text-center text-white">..and you?</h3>
+    <br /><br /><br />
+  </div>
+</div>
+
+<div id="howToBox">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12 px-0 py-5" id="howToBoxPic">
+        <!--img class="mt-auto mb-auto" src="img/app-promo/iphone-app-screenshot.png" alt="App Screenshot - Shards App Promo Demo Page"-->
+      </div>
+
+      <!-- App Features Wrapper -->
+      <div class=" col-lg-6 col-md-8 col-sm-12 py-5 mx-auto">
+        <div class="container">
+          <h2 class="text-center">How to create and configure your push notification feed</h2>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i style="font-size:3.7em;" class="fas fa-pencil-alt text-warning"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5>1. Create a new feed</h5>
+              <p class="text-muted">
+                On the top of this page, put some name for your feed and set your password.
+                The name should contain no whitespace.
+                You will later use your name to find your feed across all devices.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center" >
+              <i style="font-size:3.7em;" class="fas fa-bell text-danger"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5>2. Allow Notifications</h5>
+              <p class="text-muted">
+                Your browser will promt you to allow receiving notifications to your device.<br /><br />
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center" >
+              <i style="font-size:3.7em;" class="fas fa-plus-square text-success"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5>3. Add channels to your feed (f.e. subreddits or twitter profiles)</h5>
+              <p class="text-muted">
+                Choose which channels you want to receive notifications from.
+                On your feedpage click the plus button and copy-paste the social media or news channels urls.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+                <i style="font-size:3.7em;" class="fas fa-play-circle text-primary"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5>4. Connect your device(s)</h5>
+              <p class="text-muted">
+                  To subscribe to your own feed with your current device simply press the subscribe button.
+                  If you want to subscribe on another device you have to visit your feeds url on that device with any modern browser (preferably chrome) and hit the button there.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i style="font-size:3.7em;color:grey;" class="fas fa-envelope"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5>That's it!</h5>
+              <p class="text-muted">
+                  Now you will receive push notifications from your added channels to your connected device(s).
+                  To keep your subscription active you need to resubscribe at least once a month.<br />
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i style="font-size:3.7em;" class="fas fa-filter text-info"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5>Optionally filter your channels</h5>
+              <p class="text-muted">
+                  Click on the edit button for each channel to filter its posts.
+                  You can filter by popularity, words or phrases and authors.
+              </p>
+            </div>
+          </div>
+
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="pricingBox" style="display:none;">
+  <br /><br /><br />
+  <div class="container">
+    <h1 class="text-center text-white">Plans</h1>
+    <br /><br />
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="pricingTable red">
+          <h3 class="title">Free</h3>
+          <div class="price-value">$0
+              <span class="month">/month</span>
+          </div>
+          <ul class="pricing-content">
+            <li>When a notification is sent there is a 10% chance to be redirected over an ad</li>
+            <li>Unlimited device subscriptions</li>
+            <li>Normal priority (up to 20 minutes delay)</li>
+          </ul>
+          <button onclick="scrollToId('newFeedBox');" class="pricingTable-signup">Sign up</button>
+        </div>
+      </div>
+      <!--div class="col-lg-3 col-md-6">
+        <div class="pricingTable blue">
+          <h3 class="title">Basic</h3>
+          <div class="price-value">$3
+              <span class="month">/month</span>
+          </div>
+          <ul class="pricing-content">
+            <li>10 social media channels</li>
+            <li>4 device subscriptions</li>
+            <li>High priority</li>
+          </ul>
+          <h2>Coming soon!</h2><br />
+        </div>
+      </div-->
+      <div class="col-md-4">
+        <div class="pricingTable green">
+          <h3 class="title">Pro</h3>
+          <div class="price-value">$10
+              <span class="month">/month</span>
+          </div>
+          <ul class="pricing-content">
+            <li>No Ads</li>
+            <li>5 device subscriptions</li>
+            <li>Very high priority (up to 2 minutes delay)</li>
+          </ul>
+          <!--button href="#" class="pricingTable-signup">Sign up</button-->
+          <h2>Coming soon!</h2>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pricingTable yellow">
+          <h3 class="title">Business</h3>
+          <div class="price-value" style="font-size:1.1em;font-weight: normal;">Please contact
+            <span class="month">us</span>
+          </div>
+          <ul class="pricing-content">
+            <li>No Ads</li>
+            <li>Unlimited device subscriptions</li>
+            <li>Very high priority (up to 2 minutes delay)</li>
+          </ul>
+          <!--button href="#" class="pricingTable-signup">Sign up</button-->
+          <h2>Please contact us!</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br /><br />
+</div>
+
+<div id="featuresBox">
+  <div class="container-fluid">
+    <div class="row">
+
+
+      <!-- App Features Wrapper -->
+      <div class=" col-lg-6 col-md-8 col-sm-12 py-5 mx-auto">
+        <div class="container">
+          <!--h1 class="text-center text-dark">Features</h1-->
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i style="font-size:4.4em;" class="fab fa-creative-commons-nc text-warning"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5 class="text-dark">It's free!</h5>
+              <p class="text-muted">
+                We offer you a free plan with almost no limits.<br /><br />
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i style="font-size:3.8em;" class="fas fa-filter text-danger"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5 class="text-dark">Filter social media and news channels</h5>
+              <p class="text-muted">
+                Use our tool to choose for yourself what messages you want the get forwarded to your devices.
+                Filter posts by specific words, popularity, authors and more.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i class="fas fa-cloud text-info"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5 class="text-dark">Manage the notification feed for all your devices from one place</h5>
+              <p class="text-muted">
+                  You can add different devices to your feed, receiving the same notifications across your desktops, mobiles or tablets.
+                  Your channels and filters are stored in the cloud.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i class="fas fa-users text-secondary"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5 class="text-dark">Let your friends or followers be part of your feed</h5>
+              <p class="text-muted">
+                  Not only yourself but also other users can subscribe to your feed.
+                  Simply share your feeds url with them.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="media">
+            <span class="media-left text-center">
+              <i style="color:grey;" class="fab fa-chrome text-success"></i>
+            </span>
+            <div class="media-body my-auto">
+              <h5 class="text-dark">No app installation needed</h5>
+              <p class="text-muted">
+                  To add a new device on desktop or mobile simply visit your feeds url and hit subscribe, that's it!
+                  The only thing that you will need is a browser that supports serviceworkers (f.e. chrome, chrome mobile, firefox, opera ..)
+              </p>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12 px-0 py-5" id="featuresBoxPic">
+        <!--img class="mt-auto mb-auto" src="img/app-promo/iphone-app-screenshot.png" alt="App Screenshot - Shards App Promo Demo Page"-->
+      </div>
+    </div>
+  </div>
+</div>
+<% include partials/footer %>

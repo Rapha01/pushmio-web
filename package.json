@@ -1,0 +1,37 @@
+{
+  "name": "Pushm.io",
+  "version": "1.0.0",
+  "description": "Simple push notification app",
+  "main": "app.js",
+  "scripts": {
+    "test": "\u001b[D"
+  },
+  "dependencies": {
+    "nodemon": "*",
+    "body-parser": "*",
+    "csvtojson": "^2.0.3",
+    "ejs": "*",
+    "express": "*",
+    "joi": "*",
+    "mysql": "*",
+    "cheerio": "*",
+    "axios": "*",
+    "node-cron": "*",
+    "request": "*",
+    "web-push": "*",
+    "bcryptjs": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "express-validator": "*",
+    "express-session": "*",
+    "express-messages": "*",
+    "connect-flash": "*",
+    "animate.css": "*",
+    "express-useragent": "*",
+    "html-entities": "*",
+    "express-recaptcha": "*"
+  },
+  "author": "Linck",
+  "license": "ISC"
+}

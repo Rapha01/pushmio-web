@@ -1,0 +1,40 @@
+#channellist li {
+  list-style: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  height: 2.2em;
+  margin: 4px 0;
+  padding: 0.3em 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input.transparent-input {
+  color: white;
+  background-color:rgba(255,255,255,0.1) !important;
+  border:none !important;
+}
+
+
+#subscriptionList li {
+  list-style: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  height: 2.2em;
+  margin: 4px 0;
+  padding: 0.3em 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#postHistoryList li {
+  list-style: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  min-height: 2em;
+  margin: 4px 0;
+  padding: 0.3em 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ul {
+  padding-left:0px;
+}

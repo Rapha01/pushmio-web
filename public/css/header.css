@@ -1,0 +1,85 @@
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  box-shadow:inset 0 0 0 2000px rgba(0,24,48,0.92);
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url("");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity:0.3;
+}
+
+
+.nav-item {
+  font-weight: lighter;
+  color:white;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: lighter;
+}
+
+#socialmediaIcons .nav-item {
+  font-size:23px;
+  padding: 5px 5px;
+}
+
+#socialmediaIcons .facebook {
+    color: #0077e2;
+}
+
+#socialmediaIcons .telegram {
+    color: #00aced;
+}
+
+#socialmediaIcons .twitter {
+    color: #00aced;
+}
+
+#socialmediaIcons .facebook:hover {
+    color: white;
+}
+
+#socialmediaIcons .telegram:hover {
+    color: white;
+}
+
+#socialmediaIcons .twitter:hover {
+    color: white;
+}
+
+.alertbox {
+    position: fixed;
+    margin: 2em 2em;
+    padding: 8px 12px;
+    bottom: 0;
+    left: 0;
+    display: none;
+    color:white;
+    max-width:300px;
+    min-width:200px;
+    z-index:2;
+}
+
+nav {
+  background: rgba(0,0,0,0.85); /* For browsers that do not support gradients */
+   background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+}
+
+#headerFeedName {
+  list-style: none;
+  /*background: rgba(0, 188, 140, 0.5);
+  color: #fff;*/
+  padding: 0em 0.5em;
+  padding-bottom: 0.1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

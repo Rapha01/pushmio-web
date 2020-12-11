@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="description" content="<%= metaDescription %>">
+    <meta name="keywords" content="<%= keywords %>">
+    <meta name="author" content="Lin ck">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="icon" href="/img/logo.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/header.css">
+		<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/js/animate.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/alertbox.js"></script>
+    <script src="/js/subscription.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122663947-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-122663947-1');
+    </script>
+
+    <script id="spout-tag-f5ce1507-aee3-4fcd-927c-9e0987f55246">
+      (function() {
+        var r = encodeURIComponent(top.document.referrer.substring(0,250)),
+            p = encodeURIComponent(top.document.location.href.substring(0,250)),
+            t = Date.now(),
+            u = 'f5ce1507-aee3-4fcd-927c-9e0987f55246',
+            e = document.createElement('script'),
+            s = sessionStorage.getItem('spoutable-' + u);
+        if (!s) {
+          var m = Math.random.bind(Math);
+          s = JSON.stringify({ sessionId: [ t, m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m() ]});
+          sessionStorage.setItem('spoutable-' + u, s);
+        }
+        e.async = true;
+        e.src='//s.spoutable.com/s?u='+u+'&s='+encodeURIComponent(s)+'&t='+t+'&r='+r+'&p='+p;
+        document.head.appendChild(e);
+      })();
+    </script>
+  </head>
+  <body>
+    <script src="/js/ads.js" type="text/javascript"></script><!-- adblocker bait -->
+    <script>
+      $(document).ready(function () {
+        <% if (success != '') { %>
+          showAlertbox('success','<%=success%>');
+        <% } %>
+        <% if (error != '') { %>
+          showAlertbox('danger','<%=error%>');
+        <% } %>
+      });
+
+      // Check adblock bait
+      let adblockactive = false;
+      if(!document.getElementById('adblockBait'))
+        adblockActive = true;
+
+    </script>
+
+    <div style="min-height:100vh;">
+      <div id="alertframe"></div>
+      <% include navbar %>
+
+      <div id="particles-js"></div>
+      <script src="/js/particles.min.js"></script>
+      <script src="/js/particles_conf.js"></script>
+      <br /><br /><br /><br />

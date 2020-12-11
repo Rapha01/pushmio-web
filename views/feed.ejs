@@ -1,0 +1,352 @@
+<%
+var title = 'Unused notification Feed';
+var metaDescription = 'No need to deactivate or turn off push notifications yet, instead make them interesting and useful! Build your own customized and filtered notification feed for mobile or desktop!';
+var keywords = 'customized,personalized,filtered,push, notification,stream,feed';
+
+if (feed.id > 0) {
+  var keywords = feed.name;
+  title = feed.name;
+  metaDescription = 'Organize and manage your push notifications. Receive updates on mobile and desktop from social media channels like ';
+  for (var i=0; i < feed.channels.length && i < 4; i++) {
+    metaDescription = metaDescription + feed.channels[i].target +  ', ';
+    keywords = keywords + ', ' + feed.channels[i].target;
+  }
+  metaDescription = metaDescription + '..';
+}
+%>
+
+<% include partials/header %>
+
+<script src="/js/feed.js"></script>
+<script>
+  feedId = <%= feed.id %>;
+  <%
+  if (user) { %>
+    user.id = <%= user.id %>;
+    <% if (user.id == feed.id) { %>
+      owner = true;
+      <%
+    }
+  }
+
+  if (feed.id > 0) { %>
+    $(document).ready(function () {
+      <%
+      for (var i=0; i < feed.channels.length; i++) { %>
+        addChannelLi(<%- JSON.stringify(feed.channels[i]) %>);
+        <%
+      }
+      if (feed.channels.length == 0) { %>
+        showNoChannelsMessage();
+        <%
+      } %>
+
+      addSubscriptionStats(<%- JSON.stringify(feed.subscriptions) %>);
+      <%
+      if (feed.subscriptions.length < 10) {
+        for (var j=0; j < feed.subscriptions.length; j++) { %>
+          addSubscriptionLi(<%- JSON.stringify(feed.subscriptions[j]) %>);
+          <%
+        }
+      }
+
+      if (!useragent.isChrome) { %>
+        $('#notChromeErrorBox').show();
+        <%
+      }
+
+      if (useragent.isiPad || useragent.isiPod || useragent.isiPhone) { %>
+        $('#iOSErrorBox').show();
+        $('#newSubscriptionSubmit').hide();
+        <%
+      } %>
+
+    }); <%
+  }
+  %>
+</script>
+
+<link rel="stylesheet" href="/css/feed.css">
+
+<% if (processEnv == 'production') { %>
+  <div class="container d-none d-md-block">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- PushmioFeedHeader -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9967035229235107"
+             data-ad-slot="2845168696"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+    <br /><br />
+  </div>
+<% } else { %>
+  <br />
+<% } %>
+
+
+<% if (feed.id > 0) { %>
+<div class="container">
+  <div class="row justify-content-center align-self-center" >
+    <div class="col-md-6" style="padding: 0% 3%;">
+      <!--button class="btn btn-lg btn-success" onclick="showAlertbox('success','testWarning')">Alert</button-->
+      <!--h1 class="text-white feedName"></h1><br /-->
+      <h1 class="text-center">
+        <a href="https://pushm.io/feed/<%= feed.name %>" class="text-white">
+          <span class="text-success">pushm.io/feed/<br /><i><b id="feedName"><%= feed.name %></b></i></span>
+        </a>
+      </h1>
+      <div class="text-muted text-center" style="margin-top:10px;">
+        <b>Use this link to access, subscribe, edit and share this feed accross all devices.</b>
+      </div>
+      <br /><br />
+      <div class="custom-control custom-checkbox mb-2 text-center" id="acceptTCBox" style="display:none;">
+        <input type="checkbox" class="custom-control-input" id="customCheck2">
+        <label class="custom-control-label" for="customCheck2">Accept <a href="/termsandconditions">T&C</a></label>
+      </div>
+      <div class="text-center"><button id="newSubscriptionSubmit" style="display:none;" class="btn btn-lg btn-primary btn-pill"></button></div>
+      <div class="text-center"><button id="grantPermission" style="display:none;" class="btn btn-lg btn-primary btn-pill">Allow browser notifications</button></div>
+      <br />
+
+      <div style="display:none;" id="subscriptionErrorBox">
+        <div class="media">
+          <span class="media-left my-auto" style="width:100px;">
+            <i style="font-size:50px;" class="fas fa-exclamation-triangle text-danger"></i>
+          </span>
+          <div class="media-body my-auto">
+            <br />
+            <h5 class="text-white" id="subscriptionErrorMessage"></h5>
+          </div>
+          <span class="media-right my-auto" style="width:100px;">
+            <i style="font-size:50px;" class="fas fa-exclamation-triangle text-danger"></i>
+          </span>
+        </div>
+        <br />
+      </div>
+
+      <div style="display:none;" id="iOSErrorBox">
+        <div class="media">
+          <span class="media-left my-auto" style="width:100px;">
+            <i style="font-size:50px;" class="fas fa-exclamation-triangle text-danger"></i>
+          </span>
+          <div class="media-body my-auto">
+            <br />
+            <h5 class="text-white">Push notifications not supported on iOS (due to the lack of serviceworkers)!</h5>
+          </div>
+          <span class="media-right my-auto" style="width:100px;">
+            <i style="font-size:50px;" class="fas fa-exclamation-triangle text-danger"></i>
+          </span>
+        </div>
+        <br />
+      </div>
+
+      <div style="display:none;" id="notChromeErrorBox">
+        <div class="media">
+          <span class="media-left my-auto" style="width:100px;">
+            <i style="font-size:20px;" class="fas fa-exclamation-triangle text-warning"></i>
+          </span>
+          <div class="media-body my-auto">
+            <br />
+            <h5 class="text-white" style="font-size:1em;">It is highly recommended to use Google Chrome browser for subscribing to a feed.</h5>
+          </div>
+          <span class="media-right my-auto" style="width:100px;">
+            <i style="font-size:20px;" class="fas fa-exclamation-triangle text-warning"></i>
+          </span>
+        </div>
+        <br />
+      </div>
+
+      <% if (processEnv == 'production') { %>
+        <div class="container d-block d-md-none">
+          <br />
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- PushmioFeedMobileHeader -->
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-9967035229235107"
+                   data-ad-slot="9614969442"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+          </div>
+          <br />
+        </div>
+
+      <% } %>
+
+      <br />
+
+      <% if (feed.postHistory.length > 0) { %>
+        <h3 class="text-white text-center" style="margin-bottom:15px;">Recent notifications</h3>
+        <ul id="postHistoryList">
+          <%
+          for (var i=0; i < feed.postHistory.length && i < 10; i++) { %>
+            <li style="cursor: pointer;" onclick="window.open('<%= feed.postHistory[i].link %>', '_blank');">
+
+              <div class="row justify-content-center">
+                <div class="col-1" style=""><%= feed.postHistory[i].postdate %></div>
+                <div class="col-1" style="font-size:1.6em;">
+                  <% if (feed.postHistory[i].type == 'reddit') { %>
+                    <i class="fab fa-reddit"></i>
+                  <% }
+                  if (feed.postHistory[i].type == 'twitter') { %>
+                    <i class="fab fa-twitter"></i>
+                  <% } %>
+                </div>
+                <div class="col-10" style="">
+                  <b>
+                    <% if (feed.postHistory[i].type == 'reddit') { %>
+                      r/<%= feed.postHistory[i].target %>:
+                    <% }
+                    if (feed.postHistory[i].type == 'twitter') { %>
+                      @<%= feed.postHistory[i].target %>:
+                    <% } %>
+                  </b>
+
+                  <%= feed.postHistory[i].content %>
+                </div>
+              </div>
+
+            </li>
+          <% } %>
+        </ul>
+      <% } %>
+
+    </div>
+    <div class="col-md-0"></div>
+    <div class="col-md-5" style="padding: 0% 3%;">
+      <br />
+
+      <h3 class="text-white text-center" style="margin-top:7px;margin-bottom:15px;">
+        Channels
+        <% if (user) { %>
+          <span style="float: right;">
+            <script>twitter = 'twitter'; reddit='reddit';</script>
+            <i style="cursor:pointer;" class="fas fa-plus-square text-success" data-container="body"
+                data-toggle="popover" data-placement="left" data-html="true" data-content='
+                <span class="text-white"><b> Insert timeline/subreddit/.. link here</b></span><br />
+                <div style="margin-top:5px;">
+                  <span > Supported sources: &nbsp;&nbsp;</span>
+                  <i style="font-size:1.3em;color:#1da1f2;" class="fab fa-twitter"></i>&nbsp;&nbsp;
+                  <i style="font-size:1.3em;color:#ff4500;" class="fab fa-reddit"></i><br />
+                </div>
+
+                <div class="row" style="padding: 1px 12px;padding-top:10px;">
+                  <div class="col-xs-10" style="padding-right: 5px;">
+
+                    <input id="newChannelUrl" class="form-control" value="" placeholder="f.e. twitter.com/@user">
+                  </div>
+                  <div class="col-xs-2" >
+                    <i class="fas fa-check-square text-success" onclick="newChannel()" style="cursor:pointer;font-size:3em;"></i>
+                  </div>
+                </div>
+                '>
+            </i>
+          </span>
+        <% } %>
+      </h3>
+      <div style="min-height:100px;">
+        <ul id="channellist"></ul>
+        <div id="noChannelsYet" class="text-center"></div>
+      </div>
+      <br />
+      <% if (!user) { %>
+        <form method="POST" action="/api/feed/login">
+          <fieldset>
+            <div class="row text-center">
+              <div class="col-3 my-auto"><label>Edit Channels</label></div>
+              <div class="col-6"><input name="password" type="password" class="form-control" id="logintoFeedPass" placeholder="Password"></div>
+              <div class="col-3"><button type="submit" style="width:100%;" class="btn btn-md btn-success btn-pill align-self-center">Edit</button></div>
+            </div>
+            <input name="id" type="hidden" class="form-control" value="<%= feed.id %>">
+          </fieldset>
+        </form>
+      <% } else { %>
+        <form method="POST" action="/api/feed/logout" class="text-center">
+          <fieldset>
+            <button type="submit" class="btn btn-lg btn-success btn-pill">Logout</button>
+          </fieldset>
+        </form>
+      <% } %>
+      <br />
+
+      <div class="text-center">
+        <h3 class="text-white" style="margin-bottom:15px;">Connected devices</h3>
+        <div id="subscriptionStats">
+          <div class="row justify-content-center">
+            <div class="col-4" style="font-size:1.8em;"><i class="fas fa-desktop"></i>&nbsp;&nbsp;<span id="desktopDevicesCount"></span></div>
+            <div class="col-4" style="font-size:1.8em;"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;<span id="mobileDevicesCount"></span></div>
+            <div class="col-4" style="font-size:1.8em;"><i class="fas fa-tablet-alt"></i>&nbsp;&nbsp;<span id="tabletDevicesCount"></span></div>
+          </div>
+        </div>
+        <br />
+        <ul id="subscriptionList"></ul>
+        <div id="moreDevicesCount" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br/>
+<div class="container">
+  <div class="text-muted text-center" style="font-size:1.2em;">
+    <i>  Please send us feedback, questions, bug reports and ideas per telegram or email. </i>
+  </div>
+</div>
+<br/><br/>
+<% } else { %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 text-center">
+        <div class="media">
+          <span class="media-left my-auto" style="width:120px;">
+            <i style="font-size:50px;" class="fas fa-exclamation-triangle text-danger"></i>
+          </span>
+          <div class="media-body my-auto">
+            <br />
+            <h1 class="text-white" style="font-size:2.5em;">Requested feed not found. Please check the url.</h1>
+          </div>
+          <span class="media-right my-auto" style="width:120px;">
+            <i style="font-size:50px;" class="fas fa-exclamation-triangle text-danger"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+<% } %>
+
+<% if (processEnv == 'production') { %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- PushmioFeedFooter -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9967035229235107"
+             data-ad-slot="8140611410"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+<% } %>
+
+
+<% include partials/footer %>

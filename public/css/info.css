@@ -1,0 +1,61 @@
+
+#howToBox {
+  background-color: white;
+}
+#howToBox .media-left {
+  width:100px;
+  margin-right:20px;
+  margin-top:8px;
+}
+#howToBox .media-left i {
+  font-size:60px;
+}
+#howToBoxPic:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #001830;
+  opacity: .85;
+}
+#howToBoxPic {
+  background: url("../img/app-promo/features-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#useCaseBox {
+  background-color: #000a14;
+  opacity:0.99;
+}
+
+#useCaseBox .media-left {
+  width:40%;
+  margin-right:20px;
+}
+#featuresBox {
+  background-color: white;
+}
+#featuresBox .media-left {
+  width:100px;
+  margin-right:20px;
+  margin-top:8px;
+}
+#featuresBox .media-left i {
+  font-size:60px;
+}
+#featuresBoxPic:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #001830;
+  opacity: .85;
+}
+#featuresBoxPic {
+  background: url("../img/app-promo/features-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}

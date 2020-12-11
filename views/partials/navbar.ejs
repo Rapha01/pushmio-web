@@ -1,0 +1,52 @@
+<div class="container">
+  <nav class="fixed-top navbar navbar-expand-sm navbar-dark" style="padding: 5px 30px;z-index:1;">
+    <a class="navbar-brand" href="/"><span style="font-size:1em;" class="text-success">Pushmio<!--small style="font-size:0.45em;margin-left:3px;" class="text-warning">beta</small--></span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item my-auto">
+          <a class="nav-link" href="/#newFeedBox">Create a new Feed</a>
+        </li>
+        <li class="nav-item my-auto">
+          <a class="nav-link" href="/#supportedBox">Info&nbsp;</a>
+        </li>
+        <li class="nav-item my-auto">
+          <a class="nav-link" href="/#howToBox">How to&nbsp;</a>
+        </li>
+        <li class="nav-item my-auto">
+          <a class="nav-link" href="/#pricingBox">Pricing&nbsp;</a>
+        </li>
+        <!--li class="nav-item" id="socialMediaIcons" style="font-size:23px;padding-top:2px;">
+          <a href="https://t.me/pushmio" class="telegram"><i class="fab fa-telegram-plane"></i></a>
+        </li-->
+        <li class="nav-item my-auto" style="padding-left:10px;">
+          <i style="font-size:1.1em;cursor:pointer;" class="fas fa-search" onclick="toggleSearchbar()"></i>
+        </li>
+        <li class="nav-item my-auto" style="padding-left:30px;display:none;" id="searchbar">
+          <div class="row">
+            <div class="col-xs-4">
+              <input style="height:1.8em;" id="searchName" type="name" placeholder="Enter feedname.." class="form-control">
+            </div>
+            <div class="col-xs-6">
+              <button id="searchButton" onclick="if($('#searchName').val().length > 0) window.location.href = '/feed/' + $('#searchName').val();" style="height:2em;" class="btn btn-sm btn-success">Go</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!--form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form-->
+      <ul class="navbar-nav">
+
+
+        <li class="nav-item" style="display:none;" id="headerFeedNameBox">
+          <span style="font-size:0.9em;padding-top:20px;">Active on this Device:&nbsp;&nbsp;</span> <button id="headerFeedName" type="button" class="btn btn-success"></button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

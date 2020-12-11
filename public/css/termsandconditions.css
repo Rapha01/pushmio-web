@@ -1,0 +1,19 @@
+
+#tacHeader {
+  position: relative;
+  min-height: 100vh;
+  background: url("../img/app-promo/welcome-cover.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#tacHeader:before {
+  position: absolute;
+  z-index: 0;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .88;
+  background: #212529;
+}

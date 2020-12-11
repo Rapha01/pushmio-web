@@ -1,0 +1,15 @@
+
+//Pushmiodrop
+ $i++;
+ $cfg['Servers'][$i]['host'] = ''; //provide hostname and port if other than default
+ $cfg['Servers'][$i]['user'] = '';   //user name for your remote server
+ $cfg['Servers'][$i]['password'] = '';  //password
+ $cfg['Servers'][$i]['auth_type'] = 'config';       // keep it as config
+
+
+//Linckdrop2
+ $i++;
+ $cfg['Servers'][$i]['host'] = ''; //provide hostname and port if other than default
+ $cfg['Servers'][$i]['user'] = '';   //user name for your remote server
+ $cfg['Servers'][$i]['password'] = '';  //password
+ $cfg['Servers'][$i]['auth_type'] = 'config';       // keep it as config
